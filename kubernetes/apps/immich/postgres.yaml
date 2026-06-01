@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: tensorchord/cloudnative-vectorchord:16
+          image: postgres:16
           env:
             - name: POSTGRES_DB
               value: immich
