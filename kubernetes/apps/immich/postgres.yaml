@@ -1,40 +1,38 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-name: immich-postgres
-namespace: immich
+  name: immich-postgres
+  namespace: immich
 spec:
-replicas: 1
-selector:
-matchLabels:
-app: immich-postgres
-template:
-metadata:
-labels:
-app: immich-postgres
-spec:
-containers:
-- name: postgres
-image: tensorchord/cloudnative-vectorchord:16
-env:
-- name: POSTGRES_DB
-value: immich
-- name: POSTGRES_USER
-value: immich
-- name: POSTGRES_PASSWORD
-value: immichpassword
-ports:
-- containerPort: 5432
----------------------
-
+  replicas: 1
+  selector:
+    matchLabels:
+      app: immich-postgres
+  template:
+    metadata:
+      labels:
+        app: immich-postgres
+    spec:
+      containers:
+        - name: postgres
+          image: tensorchord/cloudnative-vectorchord:16
+          env:
+            - name: POSTGRES_DB
+              value: immich
+            - name: POSTGRES_USER
+              value: immich
+            - name: POSTGRES_PASSWORD
+              value: immichpassword
+          ports:
+            - containerPort: 5432
+---
 apiVersion: v1
 kind: Service
 metadata:
-name: immich-postgres
-namespace: immich
+  name: immich-postgres
+  namespace: immich
 spec:
-selector:
-app: immich-postgres
-ports:
-- port: 5432
-
+  selector:
+    app: immich-postgres
+  ports:
+    - port: 5432
