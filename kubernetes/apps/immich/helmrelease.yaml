@@ -40,3 +40,4 @@ spec:
       DB_USERNAME: immich
       DB_PASSWORD: immichpassword
       DB_DATABASE_NAME: immich
+
