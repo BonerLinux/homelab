@@ -1,12 +1,3 @@
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: OCIRepository
-metadata:
-  name: immich
-  namespace: flux-system
-spec:
-  interval: 5m
-  url: oci://ghcr.io/immich-app/immich-charts/immich
----
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
@@ -18,8 +9,9 @@ spec:
   chart:
     spec:
       chart: immich
+      version: "*"
       sourceRef:
-        kind: OCIRepository
+        kind: HelmRepository
         name: immich
         namespace: flux-system
 
@@ -40,4 +32,3 @@ spec:
       DB_USERNAME: immich
       DB_PASSWORD: immichpassword
       DB_DATABASE_NAME: immich
-
