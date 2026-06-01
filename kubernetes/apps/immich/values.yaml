@@ -1,0 +1,17 @@
+image:
+tag: v1.140.1
+
+immich:
+persistence:
+library:
+existingClaim: immich-library
+
+redis:
+enabled: true
+
+env:
+DB_HOSTNAME: immich-postgres
+DB_USERNAME: immich
+DB_PASSWORD: immichpassword
+DB_DATABASE_NAME: immich
+
