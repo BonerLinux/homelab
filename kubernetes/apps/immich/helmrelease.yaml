@@ -15,24 +15,28 @@ metadata:
 spec:
   interval: 10m
 
-  chartRef:
-    kind: OCIRepository
-    name: immich
-    namespace: flux-system
-values:
-  immich:
-    persistence:
-      library:
-        existingClaim: immich-library
+  chart:
+    spec:
+      chart: immich
+      sourceRef:
+        kind: OCIRepository
+        name: immich
+        namespace: flux-system
 
-  image:
-    tag: v1.140.1
+  values:
+    immich:
+      persistence:
+        library:
+          existingClaim: immich-library
 
-  redis:
-    enabled: true
+    image:
+      tag: v1.140.1
 
-  env:
-    DB_HOSTNAME: immich-postgres
-    DB_USERNAME: immich
-    DB_PASSWORD: immichpassword
-    DB_DATABASE_NAME: immich
+    redis:
+      enabled: true
+
+    env:
+      DB_HOSTNAME: immich-postgres
+      DB_USERNAME: immich
+      DB_PASSWORD: immichpassword
+      DB_DATABASE_NAME: immich
