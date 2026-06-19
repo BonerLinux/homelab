@@ -20,7 +20,7 @@ spec:
     image:
       tag: v2.7.5
 
-    redis:
+    valkey:
       enabled: true
 
     server:
