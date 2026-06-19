@@ -1,2 +1,4 @@
 resources:
+  - bitnami-repo.yaml
+  - postgres.yaml
   - immich-repo.yaml

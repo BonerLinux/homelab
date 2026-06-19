@@ -17,6 +17,12 @@ spec:
         namespace: flux-system
 
   values:
+    env:
+      DB_HOSTNAME: immich-postgres
+      DB_USERNAME: immich
+      DB_PASSWORD: immichpassword
+      DB_DATABASE_NAME: immich
+
     image:
       tag: v2.7.5
 
