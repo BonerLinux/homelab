@@ -4,16 +4,13 @@ metadata:
   name: immich
   namespace: immich
 spec:
-  interval: 10m
+  interval: 30m
 
   chart:
     spec:
-      chart: immich
-      version: "*"
-      sourceRef:
-        kind: HelmRepository
-        name: immich
-        namespace: flux-system
+      chart: oci://ghcr.io/immich-app/immich-charts/immich
+      version: "0.12.0"
+      interval: 12h
 
   values:
     immich:
@@ -22,13 +19,17 @@ spec:
           existingClaim: immich-library
 
     image:
-      tag: v1.140.1
+      tag: v2.7.5
 
     redis:
       enabled: true
 
-    env:
-      DB_HOSTNAME: immich-postgres
-      DB_USERNAME: immich
-      DB_PASSWORD: immichpassword
-      DB_DATABASE_NAME: immich
+    server:
+      service:
+        type: NodePort
+        nodePort: 32283
+
+    immich:
+      persistence:
+        library:
+          existingClaim: immich-library

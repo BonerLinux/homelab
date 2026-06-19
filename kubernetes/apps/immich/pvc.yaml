@@ -6,8 +6,8 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: immich-local
-
   resources:
     requests:
-      storage: 500Gi
+      storage: 5Ti
+  storageClassName: ""
+  volumeName: immich-library-pv

@@ -4,12 +4,10 @@ metadata:
   name: immich-library-pv
 spec:
   capacity:
-    storage: 500Gi
+    storage: 5Ti
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: immich-local
-
+  storageClassName: ""
   hostPath:
-    path: /mnt/media/immich
-    type: DirectoryOrCreate
+    path: /mnt/tank/kubernetes/immich/library
