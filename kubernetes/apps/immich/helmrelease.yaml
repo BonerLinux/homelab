@@ -28,8 +28,3 @@ spec:
       service:
         type: NodePort
         nodePort: 32283
-
-    immich:
-      persistence:
-        library:
-          existingClaim: immich-library
