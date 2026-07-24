@@ -82,11 +82,13 @@ sudo chmod +x install.sh
 
 ## 🧰 Kubernetes Services
 - [ ] Home Assistant
-- [ ] Immich
+- [x] Immich
+- [x] Nextcloud
+- [x] Graphana
 - [ ] Frigate
 - [ ] Proxy
 - [ ] Arr stack
-- [ ] Vaultwarden
+- [x] Vaultwarden
 - [ ] Dashboard
 - [ ] AI
 - [ ] Websites

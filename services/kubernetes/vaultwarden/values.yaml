@@ -1,0 +1,7 @@
+storage:
+  existingVolumeClaim:
+    claimName: vaultwarden
+    dataPath: /data
+
+service:
+  type: NodePort

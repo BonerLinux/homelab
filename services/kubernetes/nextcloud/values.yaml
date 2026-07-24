@@ -1,0 +1,33 @@
+nextcloud:
+  host: nextcloud.local
+
+  username: admin
+  password: password
+
+  datadirectory: /var/www/html/data
+
+externalDatabase:
+  enabled: true
+  type: postgresql
+  host: 192.168.1.125:5433
+  user: nextcloud
+  password: password
+  database: nextcloud
+
+mariadb:
+  enabled: false
+
+postgresql:
+  enabled: false
+
+externalRedis:
+  enabled: false
+
+persistence:
+  enabled: true
+  existingClaim: nextcloud-files
+
+service:
+  type: NodePort
+  port: 8080
+  nodePort: 30808
