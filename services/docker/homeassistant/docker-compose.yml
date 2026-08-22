@@ -8,7 +8,7 @@ services:
       - proxy_net
     ports: ["8123:8123"]
     volumes:
-      - ${TANK_ROOT}/config/homeassistant:/config
+      - ${SERVICE_DIRECTORY}/homeassistant/config:/config
       - /etc/localtime:/etc/localtime:ro
       - /run/dbus:/run/dbus:ro
 

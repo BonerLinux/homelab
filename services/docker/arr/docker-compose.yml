@@ -69,7 +69,7 @@ services:
     volumes:
       - ${SERVICE_DIRECTORY}/sonarr:/config
       - ${MEDIA_DIRECTORY}/shows:/shows
-      - ${SERVICE_DIRECTORY}/torrents:/torrents
+      - ${MEDIA_DIRECTORY}/torrents:/torrents
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -89,7 +89,7 @@ services:
     volumes:
       - ${SERVICE_DIRECTORY}/radarr:/config
       - ${MEDIA_DIRECTORY}/movies:/movies
-      - ${SERVICE_DIRECTORY}/torrents:/torrents
+      - ${MEDIA_DIRECTORY}/torrents:/torrents
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -109,7 +109,7 @@ services:
     volumes:
       - ${SERVICE_DIRECTORY}/lidarr:/config
       - ${MEDIA_DIRECTORY}/music:/music
-      - ${SERVICE_DIRECTORY}/torrents:/torrents
+      - ${MEDIA_DIRECTORY}/torrents:/torrents
     ports:
       - 8686:8686
     restart: unless-stopped
@@ -119,9 +119,11 @@ services:
     depends_on:
       - gluetun
 
-  jellyseerr:
-    image: fallenbagel/jellyseerr:latest
-    container_name: jellyseerr
+  seerr:
+    image: ghcr.io/seerr-team/seerr:latest
+    container_name: seerr
+    init: true
+    user: "1000:1000"
     networks:
       - arr_net
     environment:
@@ -134,7 +136,7 @@ services:
     restart: unless-stopped
 
   jellyfin:
-    image: jellyfin/jellyfin:preview
+    image: jellyfin/jellyfin:latest
     container_name: jellyfin
     networks:
       - arr_net

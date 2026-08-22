@@ -7,8 +7,8 @@ services:
     ports:
       - 13378:80
     volumes:
-      - ${SERVICE_DIRECTORY}/media/audiobooks:/audiobooks
-      - ${SERVICE_DIRECTORY}/media/podcasts:/podcasts
+      - ${MEDIA_DIRECTORY}/audiobooks:/audiobooks
+      - ${MEDIA_DIRECTORY}/podcasts:/podcasts
       - ${SERVICE_DIRECTORY}/audiobookshelf/config:/config
       - ${SERVICE_DIRECTORY}/audiobookshelf/metadata:/metadata
     environment:
